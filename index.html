@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9一制作厂官网首页_视频制作与短剧出品_幕后花絮与创作社区</title>
+<meta name="description" content="9一制作厂官网首页是视频内容制作与短剧出品的创作厂牌，提供自制短剧、纪录片、幕后花絮、设备清单与创作社区动态，适合影视爱好者与内容创作者参考。">
+<meta name="keywords" content="视频制作厂牌,短剧出品,幕后花絮,创作社区,设备清单">
+<style>
+:root{
+  --ink:#161a1d;
+  --ink-soft:#3d454c;
+  --muted:#7a858e;
+  --line:#e3e7ea;
+  --line-strong:#cfd6db;
+  --bg:#f6f7f8;
+  --panel:#ffffff;
+  --brand:#0f5c4f;
+  --brand-2:#12836e;
+  --brand-soft:#e3f2ee;
+  --accent:#e2622f;
+  --accent-soft:#fdeee7;
+  --gold:#b98a24;
+  --radius:12px;
+  --radius-sm:8px;
+  --shadow:0 1px 2px rgba(22,26,29,.06),0 8px 24px rgba(22,26,29,.06);
+  --shadow-sm:0 1px 2px rgba(22,26,29,.05);
+  --max:1340px;
+  --notice-h:40px;
+  --head-h:66px;
+  --sticky:calc(var(--notice-h) + var(--head-h));
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);
+  font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--brand-2);outline-offset:2px;border-radius:4px}
+section[id],div[id]{scroll-margin-top:calc(var(--sticky) + 14px)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ============ 吸顶公告条 ============ */
+.notice{
+  position:sticky;top:0;z-index:60;height:var(--notice-h);
+  background:linear-gradient(90deg,#0c4a40,#0f5c4f 45%,#14705d);
+  color:#eaf6f2;font-size:13px;display:flex;align-items:center;
+}
+.notice .wrap{display:flex;align-items:center;gap:14px;width:100%;overflow:hidden}
+.notice .tag{
+  flex:none;background:var(--accent);color:#fff;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:99px;letter-spacing:.5px;
+}
+.notice .marquee{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.notice .marquee b{color:#ffd9a8;font-weight:600}
+.notice .side{flex:none;color:#a8cec4;font-size:12px;letter-spacing:.3px}
+@media(max-width:740px){.notice .side{display:none}.notice{font-size:12px}}
+
+/* ============ 吸顶页头 ============ */
+.head{
+  position:sticky;top:var(--notice-h);z-index:55;height:var(--head-h);
+  background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.head .wrap{display:flex;align-items:center;gap:26px;height:100%}
+.logo{display:flex;align-items:center;gap:10px;flex:none}
+.logo svg{width:34px;height:34px;flex:none}
+.logo .txt{display:flex;flex-direction:column;line-height:1.15}
+.logo .txt strong{font-size:17px;letter-spacing:.5px}
+.logo .txt span{font-size:10px;color:var(--muted);letter-spacing:2px}
+.nav{display:flex;gap:4px;flex:1;overflow:hidden}
+.nav a{
+  padding:7px 11px;border-radius:var(--radius-sm);font-size:14px;color:var(--ink-soft);
+  white-space:nowrap;transition:.15s;
+}
+.nav a:hover{background:var(--brand-soft);color:var(--brand)}
+.head-tools{display:flex;align-items:center;gap:10px;flex:none}
+.searchbox{position:relative;display:flex;align-items:center}
+.searchbox input{
+  width:170px;height:34px;border:1px solid var(--line-strong);border-radius:99px;
+  padding:0 14px;font-size:13px;background:#fff;color:var(--ink);transition:.2s;
+}
+.searchbox input:focus{outline:none;border-color:var(--brand-2);width:200px;box-shadow:0 0 0 3px rgba(18,131,110,.12)}
+.btn-ghost{
+  height:34px;padding:0 14px;border-radius:99px;border:1px solid var(--brand);
+  color:var(--brand);background:#fff;font-size:13px;font-weight:600;
+}
+.btn-ghost:hover{background:var(--brand-soft)}
+.menu-btn{display:none;background:none;border:1px solid var(--line-strong);width:38px;height:34px;border-radius:var(--radius-sm);font-size:16px;color:var(--ink-soft)}
+@media(max-width:1080px){
+  .nav{display:none}
+  .searchbox input{width:130px}
+  .searchbox input:focus{width:150px}
+}
+@media(max-width:740px){
+  .head-tools .btn-ghost,.searchbox{display:none}
+  .menu-btn{display:block}
+  .head .wrap{gap:12px}
+}
+
+/* ============ 首屏 ============ */
+.hero{position:relative;overflow:hidden;background:#0d2b26;color:#e8f2ef}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(900px 380px at 82% -10%,rgba(226,98,47,.28),transparent 60%),
+    radial-gradient(700px 420px at 10% 110%,rgba(18,131,110,.45),transparent 65%);
+}
+.hero .wrap{position:relative;padding:54px 22px 48px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero .kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:1.5px;
+  color:#8fd3c3;border:1px solid rgba(143,211,195,.35);padding:5px 12px;border-radius:99px;margin-bottom:18px;
+}
+.hero .kicker i{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
+.hero h1{font-size:44px;line-height:1.15;letter-spacing:1px;font-weight:800;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:#ffb98f}
+.hero .lead{font-size:15.5px;color:#b9d3cc;max-width:520px;line-height:1.85}
+.hero .stats{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
+.hero .stats div{display:flex;flex-direction:column}
+.hero .stats b{font-size:24px;color:#fff;letter-spacing:.5px}
+.hero .stats span{font-size:12px;color:#8fb3aa;letter-spacing:.5px}
+.hero .cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn-solid{
+  display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 22px;border-radius:99px;
+  background:var(--accent);color:#fff;font-weight:700;font-size:14px;border:none;
+  box-shadow:0 8px 20px rgba(226,98,47,.28);
+}
+.btn-solid:hover{background:#cf5324}
+.btn-line{
+  display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 22px;border-radius:99px;
+  border:1px solid rgba(232,242,239,.35);color:#e8f2ef;font-weight:600;font-size:14px;background:transparent;
+}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+.hero-visual{position:relative}
+.hero-visual .frame{
+  border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 24px 60px rgba(0,0,0,.4);position:relative;
+}
+.hero-visual .frame img{width:100%;height:300px;object-fit:cover}
+.hero-visual .frame .cover-tag{
+  position:absolute;left:14px;top:14px;background:rgba(13,43,38,.82);color:#ffd9a8;
+  font-size:11px;padding:4px 10px;border-radius:99px;letter-spacing:1px;border:1px solid rgba(255,217,168,.3);
+}
+.hero-visual .float{
+  position:absolute;right:-8px;bottom:-18px;background:#fff;color:var(--ink);
+  border-radius:12px;padding:12px 16px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;
+}
+.hero-visual .float .num{font-size:22px;font-weight:800;color:var(--brand)}
+.hero-visual .float .lb{font-size:11px;color:var(--muted);line-height:1.3}
+@media(max-width:1024px){
+  .hero .wrap{grid-template-columns:1fr;gap:32px;padding:40px 22px}
+  .hero h1{font-size:34px}
+  .hero-visual .frame img{height:240px}
+  .hero-visual .float{right:8px;bottom:-14px}
+}
+@media(max-width:740px){
+  .hero h1{font-size:27px}
+  .hero .lead{font-size:14px}
+  .hero-visual .frame img{height:190px}
+  .hero .stats{gap:20px}
+}
+
+/* ============ 三栏门户布局 ============ */
+.layout{
+  display:grid;grid-template-columns:186px minmax(0,1fr) 250px;
+  gap:26px;align-items:start;padding:30px 0 10px;
+}
+.channel-bar{
+  position:sticky;top:calc(var(--sticky) + 16px);
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:8px;box-shadow:var(--shadow-sm);
+}
+.channel-bar h2{
+  font-size:11px;letter-spacing:2px;color:var(--muted);font-weight:700;
+  padding:10px 12px 8px;
+}
+.channel-bar a{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:8px 12px;border-radius:var(--radius-sm);font-size:13.5px;color:var(--ink-soft);
+  transition:.15s;
+}
+.channel-bar a:hover,.channel-bar a.on{background:var(--brand-soft);color:var(--brand);font-weight:600}
+.channel-bar a .n{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.channel-bar a.on .n{color:var(--brand-2)}
+.channel-bar .divider{height:1px;background:var(--line);margin:8px 12px}
+
+.main-col{min-width:0}
+.aside-col{display:flex;flex-direction:column;gap:18px;min-width:0}
+
+@media(max-width:1080px){
+  .layout{grid-template-columns:1fr 260px;}
+  .channel-bar{display:none}
+}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .aside-col{order:2}
+}
+
+/* ============ 通用面板/板块 ============ */
+.panel{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px;box-shadow:var(--shadow-sm);margin-bottom:22px;
+}
+.panel.tight{padding:16px 18px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.sec-head h2{
+  font-size:19px;letter-spacing:.4px;position:relative;padding-left:13px;line-height:1.3;
+}
+.sec-head h2::before{
+  content:"";position:absolute;left:0;top:3px;bottom:3px;width:4px;border-radius:2px;
+  background:linear-gradient(var(--brand-2),var(--brand));
+}
+.sec-head .sub{font-size:12.5px;color:var(--muted)}
+.sec-head .more{font-size:12.5px;color:var(--brand);font-weight:600;white-space:nowrap}
+.sec-head .more:hover{text-decoration:underline}
+
+/* 领域概览 */
+.overview p{font-size:14.5px;color:var(--ink-soft);line-height:1.95;margin-bottom:12px}
+.overview p:last-child{margin-bottom:0}
+.overview .hl{color:var(--brand);font-weight:600}
+
+/* 精选卡片网格 */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:1200px){.card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.card-grid{grid-template-columns:1fr}}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;
+  display:flex;flex-direction:column;transition:.2s;
+}
+.card:hover{border-color:var(--brand-2);box-shadow:var(--shadow);transform:translateY(-2px)}
+.card .thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eef1f2}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.card:hover .thumb img{transform:scale(1.04)}
+.card .thumb .type{
+  position:absolute;left:10px;top:10px;background:rgba(15,92,79,.9);color:#eaf6f2;
+  font-size:11px;padding:3px 9px;border-radius:99px;letter-spacing:.5px;
+}
+.card .thumb .score{
+  position:absolute;right:10px;bottom:10px;background:rgba(22,26,29,.8);color:#ffd9a8;
+  font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px;
+}
+.card .body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card .body h3{font-size:15px;line-height:1.4;letter-spacing:.2px}
+.card .body .desc{font-size:12.5px;color:var(--muted);line-height:1.7;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{
+  font-size:11px;color:var(--brand);background:var(--brand-soft);
+  padding:2px 8px;border-radius:5px;white-space:nowrap;
+}
+.card .meta{
+  display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--muted);
+  border-top:1px dashed var(--line);padding-top:9px;
+}
+.card .meta b{color:var(--accent);font-weight:700}
+
+/* 最新更新列表 */
+.updates{display:flex;flex-direction:column;gap:0}
+.updates li{
+  display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:baseline;
+  padding:11px 0;border-bottom:1px dashed var(--line);
+}
+.updates li:last-child{border-bottom:none}
+.updates .u-title{font-size:14px;font-weight:600;color:var(--ink);white-space:nowrap}
+.updates .u-title:hover{color:var(--brand);text-decoration:underline}
+.updates .u-desc{font-size:13px;color:var(--muted);min-width:0}
+.updates .u-time{font-size:11.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.updates .dot{width:6px;height:6px;border-radius:50%;background:var(--brand-2);flex:none;margin-top:6px}
+.updates li{grid-template-columns:8px auto 1fr auto}
+@media(max-width:740px){
+  .updates li{grid-template-columns:8px 1fr;row-gap:3px}
+  .updates .u-desc{grid-column:2}
+  .updates .u-time{grid-column:2;justify-self:start}
+}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media(max-width:900px){.cat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cat{
+  border:1px solid var(--line);border-radius:10px;padding:12px 13px;background:#fff;
+  display:flex;flex-direction:column;gap:4px;transition:.15s;
+}
+.cat:hover{border-color:var(--brand-2);background:var(--brand-soft)}
+.cat b{font-size:14px;color:var(--ink)}
+.cat span{font-size:11.5px;color:var(--muted)}
+.cat em{font-style:normal;font-size:11px;color:var(--brand);font-weight:600}
+
+/* 深度解析 */
+.deep{font-size:14.5px;color:var(--ink-soft);line-height:1.95}
+.deep h3{
+  font-size:16px;color:var(--ink);margin:22px 0 10px;padding-left:11px;position:relative;
+}
+.deep h3:first-child{margin-top:0}
+.deep h3::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;background:var(--accent);border-radius:2px}
+.deep p{margin-bottom:12px}
+.deep ul{margin:8px 0 14px;display:flex;flex-direction:column;gap:8px}
+.deep ul li{padding-left:18px;position:relative;font-size:14px}
+.deep ul li::before{content:"";position:absolute;left:4px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--brand-2)}
+.deep .callout{
+  background:var(--brand-soft);border-left:3px solid var(--brand-2);border-radius:0 10px 10px 0;
+  padding:13px 16px;font-size:13.5px;color:#0b4a3f;margin:14px 0;
+}
+
+/* 体验指南 - 编号步骤 */
+.steps{display:flex;flex-direction:column;gap:0;counter-reset:s}
+.steps .step{
+  display:grid;grid-template-columns:44px 1fr;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line);
+}
+.steps .step:last-child{border-bottom:none;padding-bottom:0}
+.steps .step::before{
+  counter-increment:s;content:counter(s,decimal-leading-zero);
+  font-size:16px;font-weight:800;color:var(--brand);background:var(--brand-soft);
+  width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-variant-numeric:tabular-nums;
+}
+.steps .step h3{font-size:15px;margin-bottom:5px}
+.steps .step p{font-size:13.5px;color:var(--muted);line-height:1.8}
+
+/* FAQ */
+.faq details{border:1px solid var(--line);border-radius:10px;margin-bottom:9px;background:#fff;overflow:hidden}
+.faq details[open]{border-color:var(--brand-2);background:#fcfefd}
+.faq summary{
+  list-style:none;cursor:pointer;padding:13px 44px 13px 16px;font-size:14px;font-weight:600;
+  position:relative;color:var(--ink);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  font-size:18px;font-weight:400;color:var(--brand-2);transition:.2s;
+}
+.faq details[open] summary::after{content:"−"}
+.faq .ans{padding:0 16px 15px;font-size:13.5px;color:var(--ink-soft);line-height:1.85}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:700px){.comments{grid-template-columns:1fr}}
+.cmt{
+  border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fff;
+  display:flex;flex-direction:column;gap:6px;
+}
+.cmt .top{display:flex;align-items:center;gap:8px}
+.cmt .av{
+  width:26px;height:26px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:#fff;letter-spacing:.5px;
+}
+.cmt .name{font-size:12.5px;font-weight:600;color:var(--ink)}
+.cmt .time{font-size:11px;color:var(--muted);margin-left:auto;font-variant-numeric:tabular-nums}
+.cmt p{font-size:13px;color:var(--ink-soft);line-height:1.75}
+.cmt .ref{font-size:11.5px;color:var(--brand);background:var(--brand-soft);padding:1px 7px;border-radius:4px;align-self:flex-start}
+
+/* 相关资讯 */
+.news{display:flex;flex-direction:column;gap:14px}
+.news article{display:grid;grid-template-columns:140px 1fr;gap:14px;border-bottom:1px dashed var(--line);padding-bottom:14px}
+.news article:last-child{border-bottom:none;padding-bottom:0}
+.news .pic{border-radius:8px;overflow:hidden;aspect-ratio:3/2;background:#eef1f2}
+.news .pic img{width:100%;height:100%;object-fit:cover}
+.news h3{font-size:14.5px;margin-bottom:5px;line-height:1.45}
+.news h3:hover{color:var(--brand)}
+.news .date{font-size:11.5px;color:var(--muted);margin-bottom:5px;font-variant-numeric:tabular-nums}
+.news p{font-size:13px;color:var(--muted);line-height:1.75}
+@media(max-width:600px){.news article{grid-template-columns:1fr}.news .pic{aspect-ratio:16/9}}
+
+/* 相关推荐 标签索引 */
+.reco{display:flex;flex-wrap:wrap;gap:9px}
+.reco a{
+  font-size:13px;padding:6px 13px;border-radius:99px;border:1px solid var(--line-strong);
+  color:var(--ink-soft);background:#fff;transition:.15s;
+}
+.reco a:hover{border-color:var(--brand-2);color:var(--brand);background:var(--brand-soft)}
+.reco a b{font-weight:600}
+
+/* 榜单 */
+.rank{counter-reset:r;display:flex;flex-direction:column}
+.rank li{
+  counter-increment:r;display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:center;
+  padding:9px 0;border-bottom:1px dashed var(--line);font-size:13.5px;
+}
+.rank li:last-child{border-bottom:none}
+.rank li::before{
+  content:counter(r);font-size:12px;font-weight:800;color:var(--muted);
+  width:22px;height:22px;border-radius:6px;background:var(--bg);display:flex;align-items:center;justify-content:center;
+}
+.rank li:nth-child(-n+3)::before{background:var(--accent-soft);color:var(--accent)}
+.rank .t{font-weight:600;color:var(--ink)}
+.rank .t:hover{color:var(--brand)}
+.rank .v{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rank .v b{color:var(--accent);font-weight:700}
+
+/* 侧栏 */
+.aside-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 17px;box-shadow:var(--shadow-sm);
+}
+.aside-card h2{
+  font-size:14px;letter-spacing:.5px;margin-bottom:12px;display:flex;align-items:center;gap:8px;
+}
+.aside-card h2::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--accent)}
+.aside-card .list{display:flex;flex-direction:column;gap:0}
+.aside-card .list a{
+  display:flex;gap:8px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13px;
+  color:var(--ink-soft);line-height:1.5;
+}
+.aside-card .list a:last-child{border-bottom:none}
+.aside-card .list a:hover{color:var(--brand)}
+.aside-card .list a i{
+  font-style:normal;font-size:11px;font-weight:800;color:var(--muted);width:16px;flex:none;padding-top:1px;
+}
+.aside-card .list a:nth-child(-n+3) i{color:var(--accent)}
+.mini-update li{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;padding:6px 0;color:var(--ink-soft);border-bottom:1px dashed var(--line)}
+.mini-update li:last-child{border-bottom:none}
+.mini-update li span{color:var(--muted);font-size:11.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.aside-card .cta-mini{
+  display:block;text-align:center;background:var(--brand);color:#fff;font-size:13px;font-weight:600;
+  padding:9px;border-radius:8px;margin-top:11px;
+}
+.aside-card .cta-mini:hover{background:var(--brand-2)}
+@media(max-width:900px){
+  .aside-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+}
+@media(max-width:620px){.aside-col{grid-template-columns:1fr}}
+
+/* 搜索无结果 */
+.no-result{
+  display:none;padding:16px;text-align:center;color:var(--muted);font-size:13px;
+  border:1px dashed var(--line-strong);border-radius:10px;background:#fff;
+}
+.no-result.show{display:block}
+
+/* 页尾 */
+.foot{background:#0d2b26;color:#a9c7c0;margin-top:36px;padding:44px 0 26px;font-size:13px}
+.foot .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot h3{font-size:13px;color:#e8f2ef;letter-spacing:1px;margin-bottom:12px;font-weight:700}
+.foot .brandline{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.foot .brandline svg{width:32px;height:32px}
+.foot .brandline strong{color:#fff;font-size:16px}
+.foot p{line-height:1.85;color:#8fb3aa;font-size:12.5px;max-width:340px}
+.foot ul{display:flex;flex-direction:column;gap:8px}
+.foot ul a{color:#a9c7c0;font-size:12.5px}
+.foot ul a:hover{color:#fff}
+.foot .bottom{display:flex;justify-content:space-between;gap:14px;padding-top:20px;font-size:11.5px;color:#6f948c;flex-wrap:wrap;line-height:1.8}
+.foot .bottom .links{display:flex;gap:16px;flex-wrap:wrap}
+@media(max-width:820px){.foot .cols{grid-template-columns:1fr 1fr;gap:24px}}
+@media(max-width:480px){.foot .cols{grid-template-columns:1fr}}
+
+/* 手机横向频道 */
+.mobile-nav{display:none}
+@media(max-width:1080px){
+  .mobile-nav{
+    display:flex;gap:8px;overflow-x:auto;padding:12px 22px;background:#fff;
+    border-bottom:1px solid var(--line);position:sticky;top:var(--sticky);z-index:40;
+    scrollbar-width:none;
+  }
+  .mobile-nav::-webkit-scrollbar{display:none}
+  .mobile-nav a{
+    flex:none;font-size:13px;padding:5px 12px;border-radius:99px;border:1px solid var(--line-strong);
+    color:var(--ink-soft);white-space:nowrap;
+  }
+  .mobile-nav a:hover{border-color:var(--brand-2);color:var(--brand)}
+}
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+
+<!-- ================= 吸顶公告条 ================= -->
+<div class="notice" role="region" aria-label="站点公告">
+  <div class="wrap">
+    <span class="tag">更新</span>
+    <div class="marquee">
+      本周新增 <b>《雾港回声》第 6 集</b> 与 <b>《铁轨以北》幕后特辑（上）</b>，共 14 条制作档案上线；11 月 27 日 20:00 导演直播拆解手持镜头调度。
+    </div>
+    <span class="side">2026-11-25 09:20</span>
+  </div>
+</div>
+
+<!-- ================= 吸顶页头 ================= -->
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="/#top" aria-label="9一制作厂官网首页">
+      <svg viewBox="0 0 40 40" role="img" aria-label="9一制作厂图形标志">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#12836e"/>
+            <stop offset="1" stop-color="#0f5c4f"/>
+          </linearGradient>
+        </defs>
+        <rect x="1" y="1" width="38" height="38" rx="11" fill="url(#lg)"/>
+        <rect x="9" y="11" width="22" height="15" rx="3" fill="none" stroke="#eaf6f2" stroke-width="2"/>
+        <circle cx="14" cy="30" r="2.4" fill="#ffb98f"/>
+        <circle cx="20" cy="30" r="2.4" fill="#eaf6f2"/>
+        <circle cx="26" cy="30" r="2.4" fill="#eaf6f2"/>
+        <path d="M17 15.5l6 3.2-6 3.2z" fill="#ffb98f"/>
+      </svg>
+      <span class="txt">
+        <strong>9一制作厂</strong>
+        <span>VIDEO WORKS</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="/#shorts">自制短剧</a>
+      <a href="/#docs">纪录片</a>
+      <a href="/#behind">幕后花絮</a>
+      <a href="/#gear">设备清单</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#community">创作社区</a>
+    </nav>
+    <div class="head-tools">
+      <div class="searchbox">
+        <label class="sr-only" for="q">搜索厂牌内容</label>
+        <input id="q" type="search" placeholder="搜索剧名 / 类型 / 花絮" autocomplete="off">
+      </div>
+      <a class="btn-ghost" href="/#community">加入创作社区</a>
+      <button class="menu-btn" aria-label="展开导航菜单" aria-expanded="false" id="menuBtn">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav" aria-label="移动端频道导航">
+  <a href="/#shorts">自制短剧</a>
+  <a href="/#docs">纪录片</a>
+  <a href="/#behind">幕后花絮</a>
+  <a href="/#gear">设备清单</a>
+  <a href="/#updates">最新更新</a>
+  <a href="/#cats">分类入口</a>
+  <a href="/#deep">深度解析</a>
+  <a href="/#guide">观看指南</a>
+  <a href="/#faq">常见问题</a>
+  <a href="/#news">相关资讯</a>
+</div>
+
+<!-- ================= 首屏 ================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="kicker"><i></i>独立视频厂牌 · 2019 年成立于杭州</span>
+      <h1>9一制作厂官网首页</h1>
+      <p class="lead">
+        我们做两件事：把短剧拍到能反复看，把幕后拆到能照着做。厂牌目前稳定更新自制短剧、纪实短片与制作档案三类内容，全部素材来自自有拍摄与后期流程，设备清单、分镜表和预算模板同步公开。
+      </p>
+      <div class="stats">
+        <div><b>68</b><span>已上线作品</span></div>
+        <div><b>214</b><span>制作档案</span></div>
+        <div><b>3.2 万</b><span>社区创作者</span></div>
+        <div><b>周更</b><span>短剧更新节奏</span></div>
+      </div>
+      <div class="cta">
+        <a class="btn-solid" href="/#shorts">看最新短剧 →</a>
+        <a class="btn-line" href="/#behind">拆幕后花絮</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="frame">
+        <img src="https://picsum.photos/seed/jiuyi-hero01/800/500" width="800" height="500" alt="9一制作厂《雾港回声》片场夜戏拍摄现场" loading="eager">
+        <span class="cover-tag">本周主推 · 雾港回声</span>
+      </div>
+      <div class="float">
+        <div class="num">9.1</div>
+        <div class="lb">社区评分<br>《铁轨以北》</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 主体：三栏门户 ================= -->
+<div class="wrap">
+  <div class="layout">
+
+    <!-- 左：频道索引 -->
+    <aside class="channel-bar" aria-label="频道索引">
+      <h2>频道索引</h2>
+      <a href="/#shorts" class="on">自制短剧 <span class="n">24</span></a>
+      <a href="/#docs">纪实短片 <span class="n">11</span></a>
+      <a href="/#behind">幕后花絮 <span class="n">57</span></a>
+      <a href="/#gear">设备清单 <span class="n">19</span></a>
+      <a href="/#updates">最新更新 <span class="n">14</span></a>
+      <a href="/#cats">分类入口 <span class="n">8</span></a>
+      <a href="/#deep">深度解析 <span class="n">—</span></a>
+      <a href="/#guide">观看指南 <span class="n">—</span></a>
+      <a href="/#faq">常见问题 <span class="n">6</span></a>
+      <a href="/#comments">观众评论 <span class="n">16</span></a>
+      <a href="/#news">相关资讯 <span class="n">6</span></a>
+      <a href="/#reco">延伸方向 <span class="n">8</span></a>
+      <div class="divider"></div>
+      <a href="/#rank">本周榜单 <span class="n">Top8</span></a>
+      <a href="/#community">创作社区 <span class="n">热</span></a>
+    </aside>
+
+    <!-- 中：主内容 -->
+    <main class="main-col">
+
+      <!-- 1 主题领域概览 -->
+      <section class="panel overview" id="about">
+        <div class="sec-head">
+          <h2>厂牌概览：短剧、纪实与制作档案的三条主线</h2>
+          <span class="sub">更新于 2026-11-25</span>
+        </div>
+        <p>
+          <span class="hl">9一制作厂</span>的内容分三条主线。第一条是自制短剧，单集 8—15 分钟，偏悬疑、都市与年代三类题材，目前以《雾港回声》《铁轨以北》《夜班便利店》三个系列为主力，采用周更节奏，每季 8—10 集。第二条是纪实短片，聚焦手艺人与小城职业，单集 20—30 分钟，更新不固定但每部都配完整拍摄手记。
+        </p>
+        <p>
+          第三条是制作档案，也是厂牌被同行引用最多的部分：分镜表、灯光布置图、调色 LUT 说明、录音动线与预算模板，按项目逐条拆开公开。目前档案库累计 214 条，其中《雾港回声》夜戏灯光方案与《铁轨以北》手持跟拍动线两份被社区下载次数最多。
+        </p>
+        <p>
+          2026 年 11 月起，厂牌把短剧的幕后内容从“播完再补”改成“边拍边放”，每周三随正片同步上线花絮与设备清单。对普通观众来说，这意味着看完一集可以立刻知道那场雨戏是怎么拍的；对创作者来说，则是一条可以照着复现的完整链路。
+        </p>
+      </section>
+
+      <!-- 2 精选内容推荐 -->
+      <section class="panel" id="shorts">
+        <div class="sec-head">
+          <h2>精选内容推荐</h2>
+          <span class="sub">短剧 · 纪实 · 幕后，共 9 部</span>
+          <a class="more" href="/#updates">全部更新 →</a>
+        </div>
+        <div class="card-grid" id="cardGrid">
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jiuyi-wugang01/400/300" width="400" height="300" alt="《雾港回声》雨夜码头剧照" loading="lazy">
+              <span class="type">悬疑短剧</span>
+              <span class="score">9.0</span>
+            </div>
+            <div class="body">
+              <h3>雾港回声</h3>
+              <p class="desc">沿海小城的录音师在旧磁带里听到一段不该存在的对话，顺着声音找到十年前的一桩失踪案。全片以现场同期声推动叙事，雨戏与码头夜戏占比过半。</p>
+              <div class="tags"><span>悬疑</span><span>同期声</span><span>周更</span></div>
+              <div class="meta"><span>更新至第 6 集</span><b>热度 9.4k</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jiuyi-tiegui02/400/300" width="400" height="300" alt="《铁轨以北》废弃车站手持跟拍剧照" loading="lazy">
+              <span class="type">年代短剧</span>
+              <span class="score">9.1</span>
+            </div>
+            <div class="body">
+              <h3>铁轨以北</h3>
+              <p class="desc">九十年代末铁路职工家庭的三个夏天，全片用一台手持机跟拍，几乎不用稳定器。已上线幕后特辑（上），逐镜讲解跟拍动线与演员走位配合。</p>
+              <div class="tags"><span>年代</span><span>手持跟拍</span><span>完结</span></div>
+              <div class="meta"><span>全 8 集完结</span><b>热度 8.7k</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jiuyi-yeban03/400/300" width="400" height="300" alt="《夜班便利店》深夜店内剧照" loading="lazy">
+              <span class="type">都市短剧</span>
+              <span class="score">8.6</span>
+            </div>
+            <div class="body">
+              <h3>夜班便利店</h3>
+              <p class="desc">一家 24 小时便利店的夜班店员与十二位深夜顾客。单集一个独立故事，全季在同一实景店内完成，靠机位与灯光区分不同夜晚。</p>
+              <div class="tags"><span>都市</span><span>单元剧</span><span>实景</span></div>
+              <div class="meta"><span>更新至第 9 集</span><b>热度 7.9k</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jiuyi-shouyi04/400/300" width="400" height="300" alt="纪实短片《补缸人》手艺人工作场景" loading="lazy">
+              <span class="type">纪实短片</span>
+              <span class="score">9.2</span>
+            </div>
+            <div class="body">
+              <h3>补缸人</h3>
+              <p class="desc">浙东一位七十岁的补缸师傅，一年里接到的活从 40 单降到 6 单。全片无声乐，只保留工具声与方言对话，附完整拍摄手记与收音方案。</p>
+              <div class="tags"><span>手艺人</span><span>方言</span><span>同期录音</span></div>
+              <div class="meta"><span>2026-11-12 上线</span><b>热度 6.8k</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jiuyi-huaxu05/400/300" alt="《雾港回声》夜戏灯光布置花絮" loading="lazy">
+              <span class="type">幕后花絮</span>
+              <span class="score">—</span>
+            </div>
+            <div class="body">
+              <h3>雾港回声：一场雨戏的 11 个灯位</h3>
+              <p class="desc">码头雨戏拍了两个通宵，这段 18 分钟花絮完整记录了灯位图从初稿到定稿的过程，包括两台雨车的水压参数与色温搭配。</p>
+              <div class="tags"><span>灯光</span><span>雨戏</span><span>灯位图</span></div>
+              <div class="meta"><span>11-22 上线</span><b>播放 1.6w</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jiuyi-diaose06/400/300" alt="《铁轨以北》调色前后画面对比" loading="lazy">
+              <span class="type">制作档案</span>
+              <span class="score">—</span>
+            </div>
+            <div class="body">
+              <h3>铁轨以北：胶片感调色的 4 层节点</h3>
+              <p class="desc">从 Log 到成片的四层节点拆解，含 LUT 说明、高光压缩曲线与肤色保护参数。附一段 30 秒可下载的对照片段，方便自己复现。</p>
+              <div class="tags"><span>调色</span><span>LUT</span><span>后期</span></div>
+              <div class="meta"><span>11-18 上线</span><b>下载 2.3k</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jiuyi-xiaocheng07/400/300" alt="纪实短片《小城放映员》放映机与观众" loading="lazy">
+              <span class="type">纪实短片</span>
+              <span class="score">8.9</span>
+            </div>
+            <div class="body">
+              <h3>小城放映员</h3>
+              <p class="desc">皖南县城最后一家影院的放映员，从胶片机换到数字机，二十三年只休过九天。片尾保留了他自己剪的一段胶片片头。</p>
+              <div class="tags"><span>小城职业</span><span>胶片</span><span>口述</span></div>
+              <div class="meta"><span>2026-11-05 上线</span><b>热度 5.7k</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jiuyi-shebei08/400/300" alt="9一制作厂短剧常用摄影机与镜头清单" loading="lazy">
+              <span class="type">设备清单</span>
+              <span class="score">—</span>
+            </div>
+            <div class="body">
+              <h3>十万元预算的短剧整机方案</h3>
+              <p class="desc">一台主机、三支定焦、两盏灯、一套无线麦与备份方案，按《夜班便利店》的实际使用列出型号、租赁价与替代选项，全部可查。</p>
+              <div class="tags"><span>摄影机</span><span>镜头</span><span>租赁</span></div>
+              <div class="meta"><span>11-20 更新</span><b>收藏 3.1k</b></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jiuyi-fenjing09/400/300" alt="《雾港回声》分镜表手绘稿" loading="lazy">
+              <span class="type">制作档案</span>
+              <span class="score">—</span>
+            </div>
+            <div class="body">
+              <h3>雾港回声：第 6 集分镜全表</h3>
+              <p class="desc">64 个镜头的景别、时长、轴线与移动方式全部标注，含两处被剪掉的备选方案，能看出成片与初稿在节奏上的取舍。</p>
+              <div class="tags"><span>分镜表</span><span>剪辑</span><span>轴线</span></div>
+              <div class="meta"><span>11-24 上线</span><b>下载 1.1k</b></div>
+            </div>
+          </article>
+
+        </div>
+        <div class="no-result" id="noResult">没有匹配的内容，换个关键词试试，例如「雾港」「调色」「灯光」。</div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="panel" id="updates">
+        <div class="sec-head">
+          <h2>最新更新与动态</h2>
+          <span class="sub">近 30 天 · 共 10 条</span>
+        </div>
+        <ul class="updates">
+          <li><span class="dot"></span><span class="u-title">雾港回声 第 6 集</span><span class="u-desc">正片上线，雨夜码头对峙戏，同步放出分镜全表与灯位图。</span><span class="u-time">今天 09:00</span></li>
+          <li><span class="dot"></span><span class="u-title">铁轨以北 幕后特辑（上）</span><span class="u-desc">逐镜讲解手持跟拍动线，含演员走位与呼吸节奏配合。</span><span class="u-time">今天 08:40</span></li>
+          <li><span class="dot"></span><span class="u-title">夜班便利店 第 9 集</span><span class="u-desc">单元故事「凌晨三点的面试」，全季倒数第二集。</span><span class="u-time">昨天 21:10</span></li>
+          <li><span class="dot"></span><span class="u-title">雾港回声 第 6 集分镜全表</span><span class="u-desc">64 个镜头标注完成，含被剪掉的两处备选方案。</span><span class="u-time">11-24 17:30</span></li>
+          <li><span class="dot"></span><span class="u-title">导演直播：手持镜头调度</span><span class="u-desc">11 月 27 日 20:00，社区内预约，限 500 人。</span><span class="u-time">11-23 12:00</span></li>
+          <li><span class="dot"></span><span class="u-title">雾港回声 一场雨戏的 11 个灯位</span><span class="u-desc">18 分钟花絮上线，含雨车水压与色温参数。</span><span class="u-time">11-22 19:20</span></li>
+          <li><span class="dot"></span><span class="u-title">十万元短剧整机方案</span><span class="u-desc">设备清单更新，替换了一支广角定焦并补充备份卡方案。</span><span class="u-time">11-20 10:15</span></li>
+          <li><span class="dot"></span><span class="u-title">铁轨以北 调色节点拆解</span><span class="u-desc">四层节点与 LUT 说明上线，附 30 秒对照片段下载。</span><span class="u-time">11-18 16:00</span></li>
+          <li><span class="dot"></span><span class="u-title">补缸人 正片上线</span><span class="u-desc">纪实短片新作，附拍摄手记与方言收音方案。</span><span class="u-time">11-12 20:00</span></li>
+          <li><span class="dot"></span><span class="u-title">小城放映员 正片上线</span><span class="u-desc">皖南县城放映员口述，片尾含自剪胶片片头。</span><span class="u-time">11-05 20:00</span></li>
+        </ul>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="panel" id="cats">
+        <div class="sec-head">
+          <h2>分类入口</h2>
+          <span class="sub">按题材与用途检索厂牌内容</span>
+        </div>
+        <div class="cat-grid">
+          <a class="cat" href="/#shorts"><b>悬疑短剧</b><span>现场同期声推动叙事</span><em>《雾港回声》等 6 部</em></a>
+          <a class="cat" href="/#shorts"><b>年代短剧</b><span>九十年代生活质感</span><em>《铁轨以北》等 4 部</em></a>
+          <a class="cat" href="/#shorts"><b>都市短剧</b><span>单元剧 · 实景拍摄</span><em>《夜班便利店》等 5 部</em></a>
+          <a class="cat" href="/#docs"><b>纪实短片</b><span>手艺人与小城职业</span><em>11 部在架</em></a>
+          <a class="cat" href="/#behind"><b>幕后花絮</b><span>灯位 · 动线 · 收音</span><em>57 条档案</em></a>
+          <a class="cat" href="/#gear"><b>设备清单</b><span>整机方案与租赁价</span><em>19 份清单</em></a>
+          <a class="cat" href="/#behind"><b>后期制作</b><span>调色 · 剪辑 · 混音</span><em>31 条拆解</em></a>
+          <a class="cat" href="/#community"><b>创作社区</b><span>模板下载与作品互评</span><em>3.2 万人</em></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="panel deep" id="deep">
+        <div class="sec-head">
+          <h2>深度解析：短剧的三类题材，判断标准并不相同</h2>
+          <span class="sub">约 780 字</span>
+        </div>
+
+        <h3>悬疑短剧：先看信息释放的节奏，再看反转</h3>
+        <p>
+          悬疑短剧最容易犯的错是把所有筹码押在最后一集的反转上。《雾港回声》走的是另一条路：每一集至少释放一条能被观众自己验证的信息，比如第二集里磁带的底噪频率、第四集里码头监控的时间戳。反转只是结果，判断这类作品值不值得追，看的是前三集有没有给出足够的可推理线索。
+        </p>
+        <p>
+          具体到观看顺序，建议先看第 1 集和第 3 集。第 1 集建立规则，第 3 集开始出现第一条可以被证伪的假设，两集之间的信息密度差异，基本能反映整季的叙事水平。如果第 3 集还在重复第 1 集的悬念，那大概率后劲不足。
+        </p>
+
+        <h3>年代短剧：质感来自道具密度，而不是滤镜</h3>
+        <p>
+          《铁轨以北》被讨论最多的是画面，但真正撑起年代感的不是调色，而是场景里能被数出来的物件：搪瓷缸的掉漆位置、职工宿舍的挂历年份、站台广播的播报措辞。这些细节在幕后档案里逐条列过，共 87 项，其中 31 项是剧组自己按年代资料复刻的。
+        </p>
+        <div class="callout">
+          判断一部年代短剧是否用心，可以看三个地方：群众演员的发型、室内光源的种类、纸质道具的印刷字体。这三项做错，滤镜再厚也救不回来。
+        </div>
+
+        <h3>都市单元剧：考验的是同一空间里的变奏能力</h3>
+        <p>
+          《夜班便利店》全季在同一家实景店内拍摄，难点不在剧本，而在于如何让十二个夜晚看起来不一样。厂牌的做法是用机位和灯光做区分：第 1 集用固定广角，第 4 集改成手持中景，第 7 集把主光换成货架灯带。三集看下来，同一空间能给出完全不同的情绪。
+        </p>
+        <p>
+          这类作品比较时，重点看三件事：
+        </p>
+        <ul>
+          <li>单元之间是否有隐性线索串联，还是完全割裂；</li>
+          <li>同一场景的机位变化是否服务于人物状态，而不是为了炫技；</li>
+          <li>配角是否具备独立动机，而不只是推动主角的工具。</li>
+        </ul>
+
+        <h3>纪实短片：可信度取决于拍摄者是否在场</h3>
+        <p>
+          《补缸人》和《小城放映员》都采用低干预拍法，摄影机不主动提问，只跟随。这类片子的可信度有一个很直接的判断标准：片中有没有出现被拍摄者无视镜头的时刻。如果有，说明拍摄周期足够长；如果全程都在对着镜头说话，那更接近访谈而非纪实。
+        </p>
+        <p>
+          另一个维度是声音。《补缸人》全片没有配乐，工具声、方言对话和环境声构成了完整的听觉层次，这种处理让观众更容易相信画面里发生的事。厂牌在拍摄手记里公开了收音方案：两支指向麦加一支环境麦，全程不补录。
+        </p>
+
+        <h3>幕后档案：从“看热闹”到“能复现”的分界</h3>
+        <p>
+          厂牌的制作档案之所以被同行频繁引用，是因为它给的是参数而不是感受。灯位图标注了每盏灯的高度、角度、色温和功率；分镜表标注了景别、时长和轴线方向；调色说明给出节点顺序与曲线数值。这些内容让一个有一定基础的创作者能在一周内复现出接近的画面。
+        </p>
+        <p>
+          反过来，看这类档案也有方法：先看设备清单确认硬件差距，再看灯位图判断空间条件，最后看调色节点。跳过前两步直接抄 LUT，多数情况下得不到同样的效果，因为问题往往出在拍摄端而不是后期。
+        </p>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="panel" id="guide">
+        <div class="sec-head">
+          <h2>观看与消费路径：从哪一部开始</h2>
+          <span class="sub">按投入时间与目的分四步</span>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div>
+              <h3>第一步：用一集试水，确认题材偏好</h3>
+              <p>时间有限就先看《雾港回声》第 1 集或《夜班便利店》第 1 集，两集都在 12 分钟以内，分别代表厂牌的悬疑线与都市线。看完能判断自己更吃哪一类叙事节奏，再决定往哪个系列投入。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>第二步：补齐整季，注意集间信息差</h3>
+              <p>悬疑线建议按顺序看完前四集再判断，因为《雾港回声》的线索是逐集叠加的；年代线可以从《铁轨以北》第 3 集切入，那一集集中展示了场景细节，独立看也不影响理解。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>第三步：配一份幕后档案对照看</h3>
+              <p>正片看完后，打开对应项目的灯位图或分镜表。对照着看能发现不少被忽略的设计，比如某场戏为什么用长焦而不是广角。这一步是从观众转向学习者的关键。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>第四步：用设备清单评估自己的复现成本</h3>
+              <p>如果打算自己拍，先看《十万元预算的短剧整机方案》，再对照目标项目的实际器材。差距过大时优先调整拍摄方案而不是加预算，厂牌在档案里也给了低配替代路径。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="panel faq" id="faq">
+        <div class="sec-head">
+          <h2>常见问题</h2>
+          <span class="sub">关于更新、题材与制作</span>
+        </div>
+        <details open>
+          <summary>《雾港回声》一般多久更新一集？</summary>
+          <div class="ans">目前是周更，固定在每周三上午上线正片，花絮与分镜表在同一天下午补上。第一季共 8 集，第 6 集已于 2026 年 11 月 25 日更新，剩余两集按周推进。遇到雨戏等外景受天气影响时，厂牌会在公告条提前一天说明延期。</div>
+        </details>
+        <details>
+          <summary>悬疑短剧和年代短剧在制作上最大的区别是什么？</summary>
+          <div class="ans">悬疑线更依赖声音设计与信息控制，拍摄时同期声的干净程度直接决定后期能不能用；年代线更依赖美术与道具密度，《铁轨以北》光是复刻道具就有 31 项。两者在调色上的取向也不同，悬疑偏冷偏青，年代偏暖偏褪色。</div>
+        </details>
+        <details>
+          <summary>第一次接触 9一制作厂，从哪一部开始看比较好？</summary>
+          <div class="ans">如果只想看故事，从《雾港回声》第 1 集或《夜班便利店》第 1 集开始，单集短、进入快。如果对制作本身感兴趣，先看《铁轨以北》的幕后特辑（上），那 20 分钟基本覆盖了厂牌的拍摄方法论，看完再回头看正片会更清楚。</div>
+        </details>
+        <details>
+          <summary>纪实短片的评判标准通常是什么？</summary>
+          <div class="ans">看三点：拍摄周期是否足够长到出现被拍摄者无视镜头的时刻；声音是否以现场收音为主而非后期配音；创作者是否克制住了解释的冲动。《补缸人》三项都做到了，所以可信度高。反之，全程访谈加配乐解说的作品，更接近专题片。</div>
+        </details>
+        <details>
+          <summary>厂牌公开的分镜表和灯位图能直接拿来用吗？</summary>
+          <div class="ans">可以参照，但要注意空间条件差异。灯位图里的高度和角度是基于具体场地的层高与窗位定的，换到层高不同的空间需要重新计算。分镜表的轴线逻辑通用性更强，适合直接学习。所有档案页都标注了适用条件，建议先读说明再用。</div>
+        </details>
+        <details>
+          <summary>十万元预算真的能拍完一部短剧吗？</summary>
+          <div class="ans">《夜班便利店》的单季制作成本控制在这个量级，前提是实景免费、团队精简到 9 人、器材以租赁为主。设备清单里列了具体型号与租赁价，也给了两套替代方案。如果场景需要搭景或需要大量外景转场，这个预算会明显不够。</div>
+        </details>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="panel" id="comments">
+        <div class="sec-head">
+          <h2>观众与创作者评论</h2>
+          <span class="sub">近 30 天 · 16 条精选</span>
+        </div>
+        <div class="comments">
+          <div class="cmt"><div class="top"><span class="av" style="background:#0f5c4f">林</span><span class="name">林间有雾</span><span class="time">今天 10:12</span></div><p>第 6 集那场雨戏的灯位图我对着看了半小时，难怪水面反光那么干净，原来主光根本没打在水上。</p><span class="ref">雾港回声</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#e2622f">陈</span><span class="name">陈默拍片</span><span class="time">今天 09:48</span></div><p>手持跟拍那期特辑讲得很实，尤其演员呼吸节奏和机位起伏的配合，之前没人这么拆过。</p><span class="ref">铁轨以北</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#12836e">阿</span><span class="name">阿岚不吃香菜</span><span class="time">昨天 22:30</span></div><p>夜班便利店第 9 集稍微有点平，前面几集的机位变化更有意思，这集基本回到固定机位了。</p><span class="ref">夜班便利店</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#b98a24">周</span><span class="name">周末剪片人</span><span class="time">昨天 20:05</span></div><p>调色那四层节点我照着搭了一遍，肤色确实稳，就是高光压缩得按自己的素材再调。</p><span class="ref">制作档案</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#3d454c">老</span><span class="name">老周在县城</span><span class="time">11-24 18:40</span></div><p>补缸人看到最后有点难受，师傅那双手的镜头停留了很久，没有解说反而更有力。</p><span class="ref">补缸人</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#0f5c4f">小</span><span class="name">小满的机位</span><span class="time">11-24 15:22</span></div><p>十万元方案里那支广角替代得挺合理，我按清单租了一套，实际拍下来确实够用。</p><span class="ref">设备清单</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#e2622f">唐</span><span class="name">唐十一</span><span class="time">11-23 21:15</span></div><p>分镜全表里那两处被剪掉的备选方案挺有价值，能看出节奏上为什么最终选了长镜头。</p><span class="ref">雾港回声</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#12836e">苏</span><span class="name">苏北片场</span><span class="time">11-23 11:30</span></div><p>年代剧的道具密度确实高，但我觉得前两集节奏稍慢，第三集才真正进入状态。</p><span class="ref">铁轨以北</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#b98a24">麦</span><span class="name">麦克风小张</span><span class="time">11-22 22:08</span></div><p>雨戏收音那段讲了两支指向麦的摆位，我照做了，雨声和对话的分离度明显好很多。</p><span class="ref">幕后花絮</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#3d454c">一</span><span class="name">一只剪辑狗</span><span class="time">11-22 14:50</span></div><p>希望后面能出混音的分轨拆解，现在后期档案里调色和剪辑都有，混音还是偏少。</p><span class="ref">后期制作</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#0f5c4f">南</span><span class="name">南方有片场</span><span class="time">11-21 19:33</span></div><p>小城放映员结尾那段自剪胶片片头，我反复看了三遍，比很多院线片的片头都讲究。</p><span class="ref">小城放映员</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#e2622f">木</span><span class="name">木木夕</span><span class="time">11-21 10:04</span></div><p>深夜便利店的设定容易撞，但靠机位区分夜晚这个思路确实解决了同质化问题。</p><span class="ref">夜班便利店</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#12836e">顾</span><span class="name">顾言拍人像</span><span class="time">11-20 20:47</span></div><p>想问下雾港回声的磁带底噪是后期做的还是实录的，那一段听起来太真实了。</p><span class="ref">雾港回声</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#b98a24">麦</span><span class="name">麦冬</span><span class="time">11-20 13:18</span></div><p>纪实短片更新慢可以理解，但希望手记能早点放出来，拍摄周期和沟通方式更值得学。</p><span class="ref">纪实短片</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#3d454c">程</span><span class="name">程小北</span><span class="time">11-19 09:55</span></div><p>铁轨以北的调色偏暖但肤色没偏，这点挺难做到，节点顺序应该是关键。</p><span class="ref">制作档案</span></div>
+          <div class="cmt"><div class="top"><span class="av" style="background:#0f5c4f">柯</span><span class="name">柯基不加班</span><span class="time">11-18 17:26</span></div><p>社区里互评的氛围还行，提意见的比夸的多，这点对创作者更有用。</p><span class="ref">创作社区</span></div>
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="panel" id="news">
+        <div class="sec-head">
+          <h2>相关资讯</h2>
+          <span class="sub">厂牌与社区动态</span>
+        </div>
+        <div class="news">
+          <article>
+            <div class="pic"><img src="https://picsum.photos/seed/jiuyi-news01/600/400" width="600" height="400" alt="《雾港回声》第 6 集上线主视觉" loading="lazy"></div>
+            <div>
+              <div class="date">2026-11-25</div>
+              <h3>《雾港回声》第 6 集上线，分镜全表同步公开</h3>
+              <p>本集雨夜码头对峙戏为全季拍摄难度最高的一场，共动用两台雨车、11 个灯位，分镜表里保留了被剪掉的两处备选方案。</p>
+            </div>
+          </article>
+          <article>
+            <div class="pic"><img src="https://picsum.photos/seed/jiuyi-news02/600/400" width="600" height="400" alt="导演手持镜头调度直播预告视觉" loading="lazy"></div>
+            <div>
+              <div class="date">2026-11-23</div>
+              <h3>导演直播定档 11 月 27 日，主题为手持镜头调度</h3>
+              <p>直播在创作社区内预约，限 500 人。内容围绕《铁轨以北》的跟拍动线展开，会现场演示三种走位与机位的配合方式。</p>
+            </div>
+          </article>
+          <article>
+            <div class="pic"><img src="https://picsum.photos/seed/jiuyi-news03/600/400" width="600" height="400" alt="短剧幕后内容边拍边放机制调整" loading="lazy"></div>
+            <div>
+              <div class="date">2026-11-19</div>
+              <h3>短剧幕后改为「边拍边放」，每周三随正片更新</h3>
+              <p>厂牌调整了档案发布节奏，花絮与设备清单不再等整季播完，而是与正片同步。首批调整覆盖《雾港回声》与《夜班便利店》。</p>
+            </div>
+          </article>
+          <article>
+            <div class="pic"><img src="https://picsum.photos/seed/jiuyi-news04/600/400" width="600" height="400" alt="社区模板下载量统计图表" loading="lazy"></div>
+            <div>
+              <div class="date">2026-11-15</div>
+              <h3>社区模板下载破 2 万次，分镜表最受欢迎</h3>
+              <p>过去一个月下载量最高的是《雾港回声》分镜表模板与短剧预算表，其次是调色 LUT 说明。社区新增了按项目检索档案的入口。</p>
+            </div>
+          </article>
+          <article>
+            <div class="pic"><img src="https://picsum.photos/seed/jiuyi-news05/600/400" width="600" height="400" alt="《补缸人》纪实短片上线画面" loading="lazy"></div>
+            <div>
+              <div class="date">2026-11-12</div>
+              <h3>纪实短片《补缸人》上线，附方言收音方案</h3>
+              <p>全片无配乐，保留工具声与方言对话。厂牌同步公开了两支指向麦加一支环境麦的收音配置，以及低干预拍法的现场原则。</p>
+            </div>
+          </article>
+          <article>
+            <div class="pic"><img src="https://picsum.photos/seed/jiuyi-news06/600/400" width="600" height="400" alt="《小城放映员》胶片片头画面" loading="lazy"></div>
+            <div>
+              <div class="date">2026-11-05</div>
+              <h3>《小城放映员》上线，片尾保留自剪胶片片头</h3>
+              <p>拍摄周期 11 个月，记录了皖南县城最后一家影院的放映员。片中胶片机换数字机的段落使用了当年的原始设备。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="panel" id="reco">
+        <div class="sec-head">
+          <h2>延伸方向</h2>
+          <span class="sub">按题材、工种与制作环节</span>
+        </div>
+        <div class="reco">
+          <a href="/#shorts"><b>雨戏拍摄</b>方案</a>
+          <a href="/#behind"><b>手持跟拍</b>动线</a>
+          <a href="/#behind"><b>同期声收音</b>配置</a>
+          <a href="/#behind"><b>胶片感调色</b>节点</a>
+          <a href="/#gear"><b>短剧预算</b>模板</a>
+          <a href="/#shorts"><b>单元剧</b>结构设计</a>
+          <a href="/#docs"><b>低干预</b>纪实拍法</a>
+          <a href="/#community"><b>分镜表</b>互评</a>
+        </div>
+      </section>
+
+      <!-- 11 补充板块：榜单 + 时间线 -->
+      <section class="panel" id="rank">
+        <div class="sec-head">
+          <h2>本周榜单</h2>
+          <span class="sub">按播放与收藏综合 · 截至 11-25</span>
+        </div>
+        <ul class="rank">
+          <li><span class="t">雾港回声 第 6 集</span><span class="v"><b>9.4k</b> 热度</span></li>
+          <li><span class="t">一场雨戏的 11 个灯位</span><span class="v"><b>1.6w</b> 播放</span></li>
+          <li><span class="t">十万元预算的短剧整机方案</span><span class="v"><b>3.1k</b> 收藏</span></li>
+          <li><span class="t">铁轨以北 幕后特辑（上）</span><span class="v"><b>8.7k</b> 热度</span></li>
+          <li><span class="t">铁轨以北：胶片感调色的 4 层节点</span><span class="v"><b>2.3k</b> 下载</span></li>
+          <li><span class="t">夜班便利店 第 9 集</span><span class="v"><b>7.9k</b> 热度</span></li>
+          <li><span class="t">补缸人</span><span class="v"><b>6.8k</b> 热度</span></li>
+          <li><span class="t">小城放映员</span><span class="v"><b>5.7k</b> 热度</span></li>
+        </ul>
+      </section>
+
+    </main>
+
+    <!-- 右：辅助栏 -->
+    <aside class="aside-col">
+      <div class="aside-card">
+        <h2>热榜速览</h2>
+        <div class="list">
+          <a href="/#shorts"><i>01</i>雾港回声 第 6 集</a>
+          <a href="/#behind"><i>02</i>雨戏的 11 个灯位</a>
+          <a href="/#gear"><i>03</i>十万元整机方案</a>
+          <a href="/#behind"><i>04</i>铁轨以北幕后特辑</a>
+          <a href="/#docs"><i>05</i>补缸人</a>
+        </div>
+      </div>
+
+      <div class="aside-card">
+        <h2>今日更新</h2>
+        <ul class="mini-update">
+          <li>雾港回声 第 6 集<span>09:00</span></li>
+          <li>铁轨以北 特辑（上）<span>08:40</span></li>
+          <li>第 6 集分镜全表<span>昨天</span></li>
+          <li>夜班便利店 第 9 集<span>昨天</span></li>
+        </ul>
+        <a class="cta-mini" href="/#updates">查看全部更新</a>
+      </div>
+
+      <div class="aside-card">
+        <h2>正在直播</h2>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.8">
+          11 月 27 日 20:00，导演直播拆解手持镜头调度，社区内可预约，限 500 人。
+        </p>
+        <a class="cta-mini" href="/#community" style="background:var(--accent)">预约直播</a>
+      </div>
+
+      <div class="aside-card" id="community">
+        <h2>创作社区</h2>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.8;margin-bottom:10px">
+          3.2 万创作者在这里交换分镜、预算与调色方案，每周三有新档案首发。
+        </p>
+        <ul class="mini-update">
+          <li>本周新帖<span>186</span></li>
+          <li>档案下载<span>2.1 万</span></li>
+          <li>互评作品<span>342</span></li>
+        </ul>
+        <a class="cta-mini" href="/#community">加入社区</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ================= 页尾 ================= -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brandline">
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <rect x="1" y="1" width="38" height="38" rx="11" fill="#12836e"/>
+            <rect x="9" y="11" width="22" height="15" rx="3" fill="none" stroke="#eaf6f2" stroke-width="2"/>
+            <circle cx="14" cy="30" r="2.4" fill="#ffb98f"/>
+            <circle cx="20" cy="30" r="2.4" fill="#eaf6f2"/>
+            <circle cx="26" cy="30" r="2.4" fill="#eaf6f2"/>
+            <path d="M17 15.5l6 3.2-6 3.2z" fill="#ffb98f"/>
+          </svg>
+          <strong>9一制作厂</strong>
+        </div>
+        <p>独立视频厂牌，专注短剧、纪实短片与制作档案。所有分镜、灯位与调色资料来自自有项目，持续公开。</p>
+      </div>
+      <div>
+        <h3>内容</h3>
+        <ul>
+          <li><a href="/#shorts">自制短剧</a></li>
+          <li><a href="/#docs">纪实短片</a></li>
+          <li><a href="/#behind">幕后花絮</a></li>
+          <li><a href="/#gear">设备清单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>了解</h3>
+        <ul>
+          <li><a href="/#about">厂牌概览</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">观看指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>动态</h3>
+        <ul>
+          <li><a href="/#updates">最新更新</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#rank">本周榜单</a></li>
+          <li><a href="/#community">创作社区</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2019—2026 9一制作厂 · 内容与档案版权归厂牌所有，转载需注明来源</span>
+      <div class="links">
+        <span>数据统计截至 2026-11-25</span>
+        <span>页面内容为示例条目，非官方授权信息</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 移动端菜单：展开/收起横向频道导航 */
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('mobileNav');
+  if(btn && nav){
+    btn.addEventListener('click', function(){
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      nav.style.display = expanded ? 'none' : 'flex';
+      btn.textContent = expanded ? '☰' : '✕';
+    });
+  }
+
+  /* 本地内容查找：筛选精选卡片与更新列表 */
+  var input = document.getElementById('q');
+  var grid = document.getElementById('cardGrid');
+  var noResult = document.getElementById('noResult');
+  if(input && grid){
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+    var updSection = document.getElementById('updates');
+    var updItems = updSection ? Array.prototype.slice.call(updSection.querySelectorAll('.updates li')) : [];
+
+    function normalize(s){ return (s || '').toLowerCase().replace(/\s+/g,''); }
+
+    input.addEventListener('input', function(){
+      var q = normalize(input.value);
+      var visible = 0;
+
+      cards.forEach(function(card){
+        var text = normalize(card.textContent);
+        var hit = !q || text.indexOf(q) !== -1;
+        card.style.display = hit ? '' : 'none';
+        if(hit) visible++;
+      });
+
+      updItems.forEach(function(li){
+        var text = normalize(li.textContent);
+        li.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
+      });
+
+      if(noResult){
+        noResult.classList.toggle('show', q !== '' && visible === 0);
+      }
+    });
+
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ input.value = ''; input.dispatchEvent(new Event('input')); }
+    });
+  }
+})();
+</script>
+</body>
+                </html>
